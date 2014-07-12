@@ -17,6 +17,10 @@ local.properties
 .loadpath
 .metadata
 *.metadata
+.metadata/
+*.appcompat_v7
+.appcompat_v7
+appcompat_v7/
 
 # External tool builders
 .externalToolBuilders/
