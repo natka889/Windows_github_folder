@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="11"
         android:targetSdkVersion="19" />
 
     <application
@@ -13,6 +13,8 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        
+        <!-- The main/home activity (it has no parent activity) -->
         <activity
             android:name="com.example.testing_stocks.MainActivity"
             android:label="@string/app_name" >
@@ -22,9 +24,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <!-- All activities below this are not the parent activity -->
         <activity
             android:name="com.example.testing_stocks.DisplayMessageActivity"
             android:label="@string/title_activity_display_message" >
+            android:parentActivityName="com.example.testing_stocks.MainActivity"
+            <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.testing_stocks.MainActivity" />
         </activity>
     </application>
 

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,18 +30,49 @@ public class DisplayMessageActivity extends ActionBarActivity {
 
         // Set the text view as the activity layout
         setContentView(textView);
+        
+        //------------Everything below this point is NEW--------------
+        //super.onCreate(savedInstanceState);
+        //setContentView(R.layout.activity_display_message); //Comment out cannot see text with this
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        // If your minSdkVersion is 11 or higher, instead use:
+        getActionBar().setDisplayHomeAsUpEnabled(true);
     }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_activity_actions, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
+    	 /**Add new stuff*/
+        // Handle presses on the action bar items
+           switch (item.getItemId()) {
+               case R.id.action_search:
+                   //openSearch(); COMMENT OUT UNTIL FIGURE OUT WHAT I WANT TO DO
+                   return true;
+               case R.id.action_settings:
+                   //openSettings(); COMMENT OUT UNTIL FIGURE OUT WHAT I WANT TO DO
+                   return true;
+               default:
+                   return super.onOptionsItemSelected(item);
+           }
+    	/**OLD Stuff----Keep until know it works than delete*/
+    	// Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        /**int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
         }
         return super.onOptionsItemSelected(item);
+        */
+       
     }
 
     /**
