@@ -14,6 +14,10 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         
+        <!-- KACIK Added Google Play Services -->
+        <meta-data android:name="com.google.android.gms.version"
+        android:value="@integer/google_play_services_version" />
+        
         <!-- The main/home activity (it has no parent activity) -->
         <activity
             android:name="com.example.testing_stocks.MainActivity"
